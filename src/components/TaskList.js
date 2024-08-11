@@ -1,11 +1,18 @@
-import React from "react";
+import React from 'react';
+import Task from './Task';
 
-function TaskList() {
+const TaskList = ({ tasks, onDeleteTask }) => {
   return (
-    <div className="tasks">
-      {/* display a list of tasks using Task component */}
-    </div>
+    <ul>
+      {tasks.map(task => (
+        <Task 
+          key={task.id} 
+          task={task} 
+          onDelete={() => onDeleteTask(task.id)} 
+        />
+      ))}
+    </ul>
   );
-}
+};
 
 export default TaskList;
